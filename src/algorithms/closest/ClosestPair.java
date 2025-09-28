@@ -28,7 +28,6 @@ public class ClosestPair {
         }
     }
 
-    // Главный метод
     public static Result find(Point[] points) {
         Point[] sortedByX = points.clone();
         Arrays.sort(sortedByX, Comparator.comparingDouble(p -> p.x));
@@ -49,7 +48,6 @@ public class ClosestPair {
         Point[] leftX = Arrays.copyOfRange(ptsX, 0, mid);
         Point[] rightX = Arrays.copyOfRange(ptsX, mid, n);
 
-        // Разделяем по y, чтобы сохранить O(n log n)
         Point[] leftY = Arrays.stream(ptsY).filter(p -> p.x <= midPoint.x).toArray(Point[]::new);
         Point[] rightY = Arrays.stream(ptsY).filter(p -> p.x > midPoint.x).toArray(Point[]::new);
 
@@ -59,11 +57,9 @@ public class ClosestPair {
         Result best = leftRes.dist < rightRes.dist ? leftRes : rightRes;
         double d = best.dist;
 
-        // Формируем "полосу" strip
         double finalD = d;
         Point[] strip = Arrays.stream(ptsY).filter(p -> Math.abs(p.x - midPoint.x) < finalD).toArray(Point[]::new);
 
-        // Проверяем 7–8 соседей
         for (int i = 0; i < strip.length; i++) {
             for (int j = i + 1; j < strip.length && (strip[j].y - strip[i].y) < d; j++) {
                 double dist = dist(strip[i], strip[j]);
