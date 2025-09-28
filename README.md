@@ -90,7 +90,3 @@ Plots were generated using collected metrics (time, depth, comparisons) for inpu
 
 ---
 
-# 🚀 How to Run
-```bash
-mvn clean install
-mvn exec:java -Dexec.mainClass="Main"
