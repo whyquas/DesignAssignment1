@@ -26,7 +26,7 @@ public class Main {
         QuickSort.sort(arr2);
         System.out.println("QuickSort: " + Arrays.toString(arr2));
 
-        // Deterministic Select (исправленный)
+        // Deterministic Select
         int[] arr3 = randomArray(n);
         int k = 5; // 0-based индекс
         int kth = DeterministicSelect.select(arr3.clone(), k);
