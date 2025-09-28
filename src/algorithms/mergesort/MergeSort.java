@@ -1,7 +1,7 @@
 package algorithms.mergesort;
 
 public class MergeSort {
-    private static final int CUTOFF = 16; // малые массивы сортируем вставками
+    private static final int CUTOFF = 16;
 
     public static void sort(int[] arr) {
         int[] buffer = new int[arr.length];
