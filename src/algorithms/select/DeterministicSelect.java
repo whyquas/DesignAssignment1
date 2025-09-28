@@ -28,7 +28,6 @@ public class DeterministicSelect {
         }
     }
 
-    // Деление массива вокруг pivot
     private static int partition(int[] arr, int left, int right, int pivotIndex) {
         int pivotValue = arr[pivotIndex];
         swap(arr, pivotIndex, right);
@@ -44,7 +43,6 @@ public class DeterministicSelect {
         return storeIndex;
     }
 
-    // Median of Medians
     private static int medianOfMedians(int[] arr, int left, int right) {
         if (right - left < 5) {
             Arrays.sort(arr, left, right + 1);
