@@ -12,14 +12,12 @@ public class QuickSort {
 
     private static void sort(int[] arr, int left, int right) {
         while (left < right) {
-            // выбираем pivot случайным образом
             int pivotIndex = left + RAND.nextInt(right - left + 1);
             int newPivotIndex = partition(arr, left, right, pivotIndex);
 
-            // рекурсия на меньшей части (tail recursion elimination)
             if (newPivotIndex - left < right - newPivotIndex) {
                 sort(arr, left, newPivotIndex - 1);
-                left = newPivotIndex + 1; // хвостовой вызов
+                left = newPivotIndex + 1;
             } else {
                 sort(arr, newPivotIndex + 1, right);
                 right = newPivotIndex - 1;
@@ -27,10 +25,9 @@ public class QuickSort {
         }
     }
 
-    // Ломю-партиция (разделяет на < pivot и > pivot)
     private static int partition(int[] arr, int left, int right, int pivotIndex) {
         int pivotValue = arr[pivotIndex];
-        swap(arr, pivotIndex, right); // переносим pivot в конец
+        swap(arr, pivotIndex, right);
         int storeIndex = left;
 
         for (int i = left; i < right; i++) {
@@ -39,7 +36,7 @@ public class QuickSort {
                 storeIndex++;
             }
         }
-        swap(arr, storeIndex, right); // возвращаем pivot на место
+        swap(arr, storeIndex, right);
         return storeIndex;
     }
 
